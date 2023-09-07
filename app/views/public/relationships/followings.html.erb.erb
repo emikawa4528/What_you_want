@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2><%= @member.name %>さんがフォローしている会員(<%= @member.followings.count %>人)</h2>
+      <% if @members.exists? %>
+        <%= render 'public/members/index', members: @members %>
+      <% else %>
+        <p>フォローしている会員はいません</p>
+      <% end %>
+    </div>
+  </div>
+  <%= paginate @members %>
+</div>

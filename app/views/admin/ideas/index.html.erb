@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2>投稿一覧</h2>
+      <p>
+        <%= link_to "新着順", admin_ideas_path(latest: "true") %>
+        |<%= link_to "古い順", admin_ideas_path(old: "true") %>
+        |<%= link_to "人気が多い順(週間)", admin_ideas_path(week_likes: "true") %>
+      </p>
+    </div>
+  </div>
+  <div class="card-deck">
+    <% @ideas.each do |idea| %>
+      <div class="col-md-4">
+        <%= render "admin/ideas/index", idea: idea %>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @ideas %>
+</div>

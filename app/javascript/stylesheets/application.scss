@@ -1,0 +1,259 @@
+ @use '~bootstrap/scss/bootstrap';
+ @import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+
+ header {
+     height: 70px;
+     background-color: #a4d5bd;
+ }
+
+
+ footer {
+   text-align: center;
+   background-color: #a4d5bd;
+ }
+ 
+
+
+ main {
+   padding-top: 20px;
+   background-image: url("back.jpg");
+ }
+
+ h1 {
+   font-family: 'Mochiy Pop One', sans-serif;
+ }
+
+ h2 {
+   font-family: 'Mochiy Pop One', sans-serif;
+ }
+ 
+ h3{
+   font-family: 'Mochiy Pop One', sans-serif;
+ }
+ 
+ h5 {
+   font-family: 'Mochiy Pop One', sans-serif;
+ }
+ 
+ p {
+   font-family: 'Mochiy Pop One', sans-serif;
+ }
+ 
+ .about {
+   text-align:  center;
+ }
+
+ 
+ p1 {
+   font-family: 'Mochiy Pop One', sans-serif;
+   color: #a9a9a9;
+   font-size:50％;
+ }
+ 
+ p2 {
+   font-family: 'Mochiy Pop One', sans-serif;
+   color: #a9a9a9;
+   font-size:30％;
+ }
+ li {
+   font-family: 'Mochiy Pop One', sans-serif;
+ }
+
+ td {
+  padding: 10px;
+ }
+
+ th {
+  font-weight: normal;
+ }
+
+ .card-img-top {
+   img {
+     margin: 5px auto 0;
+     width: 50%;
+     height: 50%;
+   }
+ }
+
+ .card-title {
+  color: #000;
+ }
+
+ .card-header {
+   img {
+     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+     width: 40px;  /* 縦横を同じ値にする */
+     height: 40px;
+     object-fit: cover;
+   }
+ }
+ 
+
+ .comment {
+  text-align: center;
+ }
+
+ .comment_time {
+   color: #808080;
+ }
+
+ .search_form {
+  text-align: right;
+  margin-right: 10%;
+ }
+
+ th {
+   img {
+     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+     width: 150px;  /* 縦横を同じ値にする */
+     height: 150px;
+     object-fit: cover;
+   }
+ }
+
+ .profile_image {
+   img {
+     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+     width: 30px;  /* 縦横を同じ値にする */
+     height: 30px;
+     object-fit: cover;
+   }
+ }
+
+.chat_room {
+  margin: 10px auto 0px;
+  width: 600px;
+  background-color: #6495ed;
+}
+
+.my_message {
+  padding: 5px 0;
+  text-align: right;
+}
+
+.my_message p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 5px;
+  padding: 8px;
+  max-width: 300px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+  text-align: left;
+}
+
+.my_message p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  transform: rotate(-35deg);
+}
+
+.you {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.you .icon {
+  float: left;
+  width: 40px;
+}
+
+.you .icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.you .chat {
+  width: 100%;
+  text-align: left;
+}
+
+.your_message {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  padding: 10px;
+  max-width: 300px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.your_message:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  transform: rotate(35deg);
+}
+
+.your_message p {
+  margin: 0;
+  padding: 0;
+}
+
+.message_form {
+  margin: 0 auto;
+  padding: 10px 0;
+  border-top: 1px solid;
+  width: 600px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.notification {
+  margin-bottom: 5px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+
+ .pagination li a {
+     border: none;     /*枠線をなくす*/
+     color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination .active a {
+    background: #93c9ff;     /*背景の色を変える*/
+    border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination li a:hover {
+    border-radius: 15px;    /*角を丸くする*/
+}
+
+.idea_images_box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 750px;
+}
+
+.idea_images {
+  display: flex;
+  margin: 5px 10px;
+}
+
+.check_box {
+  margin: 0 5px;
+}
+
+.c{
+  height: 500px;
+  width :100%;
+}

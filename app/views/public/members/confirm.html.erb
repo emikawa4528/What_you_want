@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="mx-auto col-10">
+      <h2>退会</h2>
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <p style>
+      退会するとご利用できなくなるサービスがあります。<br><br>
+      再度ご利用をいただく場合には、新規登録が必要です。<br><br>
+      本当に退会しますか？
+    </p>
+    <%= link_to "退会する", withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class: 'btn btn-outline-danger' %>
+    <%= link_to "退会しない", member_path(current_member), class: 'btn btn-outline-secondary' %>
+  </div>
+</div>

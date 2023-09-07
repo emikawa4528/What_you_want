@@ -1,0 +1,5 @@
+$('#comments_<%= @idea.id %>').html("<%= j(render "public/comments/count", idea: @idea) %>");
+
+$('#comment_area').html("<%= j(render "public/comments/comments", idea: @idea, comment: @comment, now: @now, today: @today) %>");
+
+$("textarea").val('');

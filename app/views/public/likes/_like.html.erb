@@ -1,0 +1,19 @@
+<% if idea.liked_by?(current_member) %>
+  <%= link_to idea_likes_path(idea), method: :delete, remote: true do %>
+    <i class="fas fa-heart" color="#f00"></i>
+  <% end %>
+  <% if idea.likes.present? %>
+    <%= link_to likes_idea_path(idea.id) do %>
+      いいね！<%= idea.likes.count %>件
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to idea_likes_path(idea), method: :post, remote: true do %>
+    <i class="far fa-heart" color="#000"></i>
+  <% end %>
+  <% if idea.likes.present? %>
+    <%= link_to likes_idea_path(idea.id) do %>
+      いいね！<%= idea.likes.count %>件
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2>検索結果 "<%= params[:word] %>"</h2>
+    </div>
+  </div>
+  <div>
+    <!--検索対象モデルが会員の時 -->
+    <% if @range == "会員を探す" %>
+      <div class="row">
+        <div class="mx-auto col-10">
+          <%= render "admin/members/index", members: @members %>
+        </div>
+        <%= paginate @members %>
+      </div>
+    <% else %>
+    <!--検索対象モデルが会員ではない時(= 検索対象モデルが投稿の時) -->
+      <div class="card-deck">
+        <% @ideas.each do |i| %>
+          <div class="col-md-4">
+            <%= render "admin/ideas/index", idea: i %>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @ideas %>
+    <% end %>
+  </div>
+</div>

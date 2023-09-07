@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-md-10">
+      <h2>投稿する</h2>
+      <h2><%= flash[:danger] %></h2>
+      <p>ひらめきを共有しよう！</p>
+      <%= form_with model: @idea, url: ideas_path, method: :post, local: true do |f| %>
+        <div class="form-group">
+          <%= image_tag 'wyw-ye.jpg', style: "width: 20px;" %>
+          <%= f.label :idea_images, "写真" %>
+          <%= f.file_field :idea_images, class: "form-control-file", multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= image_tag 'wyw-ye.jpg', style: "width: 20px;" %>
+          <%= f.label :title, "※タイトル(30字まで)" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= image_tag 'wyw-ye.jpg', style: "width: 20px;" %>
+          <%= f.label :body, "内容" %>
+          <%= f.text_area :body, rows: 10, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "投稿する", class: "btn btn-outline-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

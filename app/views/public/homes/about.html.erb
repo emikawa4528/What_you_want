@@ -1,0 +1,43 @@
+<div class="text-center container">
+   <h1 class="text-center mb-5">あなたのアイデアを聞かせてください</h1>
+    <p class="text-center mb-5">
+     what you want（以下Whw） は、生活の中で「こんなものがあったらいいのにな～」というアイデアを共有するSNSです。<br><br>
+     あなたの素敵なアイデアを教えてください！
+    </p>
+    <div class="row mb-5">
+    <div class="col-7 mx-auto mt-3">
+      <h3>Whwは以下のようなときにご利用ください</h3>
+      <ul>
+        <p>こんなものが欲しいと思いついたものの、販売されていないとき</p><br>
+        <p>生活の中で面倒だな、不便だなという場面があるので解決方法を知りたい時</p><br>
+        <p>自分のアイデアにアドバイスが欲しい時</p><br>
+        <p>アイデアが必要なのに思い浮かばず、人のアイデアを参考にしたい時</p><br><br>
+        <p>などなど・・・上記に当てはまらなくてもお気軽にご利用ください</p><br>
+      </ul>
+      <p>
+        投稿されているアイデアに「いいね！」や、コメントをすることもできます。<br>
+        もっと詳しく話したいときはフォローしたり、チャットルームで話してみましょう。<br>
+        ひらめきを共有して生活に役立ててください。</p>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-7 mx-auto mt-5">
+      <p>
+        会員登録・ご利用は無料です。<br>
+        もし、会員登録を迷われている方はページ右上の「ゲストログイン」をクリックする<br>
+        ことで、お試しでご利用いただけます。<br>
+        みなさまのご登録、お待ちしております。
+      </p>
+      <div class='text-center mb-3'>
+        <%= link_to new_member_registration_path, class: 'text-dark mb-3' do %>
+          <%= image_tag 'wyw-br.jpg', style: "width: 40px;" %>新規会員登録
+        <% end %>
+      </div>
+      <div class='text-center'>
+        <%= link_to new_member_session_path, class: 'text-dark' do %>
+          <%= image_tag 'wyw-ye.jpg', style: "width: 40px;" %>会員ログイン
+        <% end %>
+      </div>
+    </div>
+    </div>
+</div>

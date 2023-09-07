@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">ニックネーム</th>
+      <th scope="col">自己紹介</th>
+      <th scope="col">フォロー</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% members.each do |member| %>
+    <tr>
+      <td class="profile_image">
+        <%= link_to member_path(member.id) do %>
+          <%= image_tag member.get_profile_image %>
+        <% end %>
+      </td>
+      <td><%= member.name %></td>
+      <td><%= truncate(member.introduction, length: 15) %></td>  <!--15字まで表示-->
+      <td>
+        <% if current_member != member %>
+          <% if current_member.following?(member) %>
+            <%= link_to "フォロー中", member_relationships_path(member.id), method: :delete, data: { confirm: "ファローを外しますか？" }, class: "btn btn-outline-secondary" %>
+          <% else %>
+            <%= link_to "フォロー", member_relationships_path(member.id), method: :post, class: "btn btn-outline-success" %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

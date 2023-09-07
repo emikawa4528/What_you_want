@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WhatYouWant</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">    
+    
+    <script src="https://kit.fontawesome.com/a1bb8a159b.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+
+  <body>
+    <!--管理者のログイン状況でヘッダーが分岐-->
+    <!--管理者ログイン時-->
+    <% if admin_signed_in? %>
+      <%= render 'admin/layouts/header' %>
+      <!--その他-->
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <main>
+      <% if member_signed_in? %>
+        <div class="search_form">
+          <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
+            <%= f.select :range, options_for_select([["会員を探す"], ["投稿を探す"]]) %>
+            <%= f.text_field :word %>
+            <%= f.submit "検索" %>
+          <% end %>
+        </div><br>
+      <% else %>
+      <% if admin_signed_in? %>
+        <div class="search_form">
+          <%= form_with url: admin_searches_search_path, method: :get, local: true do |f| %>
+            <%= f.select :range, options_for_select([["会員を探す"], ["投稿を探す"]]) %>
+            <%= f.text_field :word %>
+            <%= f.submit "検索" %>
+          <% end %>
+        </div><br>
+      <% end %>
+      <% end %>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

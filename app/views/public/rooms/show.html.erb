@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2><%= @another_entry.member.name %>さんとのチャットルーム</h2>
+    </div>
+  </div>
+  <div class="chat_room">
+    <% @messages.each do |message| %>
+      <% if message.member_id == current_member.id %>
+        <div class="my_message">
+          <%= link_to message_path(message.id), method: :delete, data: { confirm: "メッセージを消しますか？" } do %>
+            <p style="color: #000;">
+              <%= message.message %>
+            </p>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="you">
+          <div class="icon"><%= link_to image_tag(message.member.get_profile_image), member_path(message.member) %></div>
+          <div class="chat">
+            <div class="your_message"><p><%= message.message %></p></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="message_form shadow-sm">
+    <%= flash[:danger] %>
+    <%= form_with model: @message, url: messages_path, method: :post, local: true do |f| %>
+      <%= f.text_field :message, class: "form-control" %>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      <%= f.submit "送信", class: "btn btn-outline-success" %>
+    <% end %>
+    100字まで入力できます。<br>
+    誹謗中傷、不適切な発言は控えるように心がけましょう。<br>
+    メッセージをクリックすると削除することができます。
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2>会員を編集</h2>
+    </div>
+    <div class="mx-auto col-8">
+      <%= form_with model: @member, url: admin_member_path, method: :patch, local: true do |f| %>
+        <table class="table">
+          <tr>
+            <th></th>
+            <th><%= image_tag @member.get_profile_image %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>ニックネーム</th>
+            <th><%= @member.name %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <th><%= @member.introduction %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>退会ステータス</th>
+            <th>
+              <%= f.radio_button :is_deleted, :false %>
+              <%= f.label :is_deleted, "有効",{value: :false, style: "display: inline-block;"} %>
+            </th>
+            <th>
+              <%= f.radio_button :is_deleted, :true %>
+              <%= f.label :is_deleted, "退会",{value: :true, style: "display: inline-block;"} %>
+            </th>
+          </tr>
+          <tr>
+            <th></th>
+            <th><%= f.submit "編集する", class: "btn btn-outline-secondary" %></th>
+            <th></th>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

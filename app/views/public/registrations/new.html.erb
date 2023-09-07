@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-10'>
+      <%= flash[:withdraw] %>
+      <h2>新規会員登録</h2>
+      <%= form_with model: @member, url: member_registration_path do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= image_tag 'wyw-br.jpg', style: "width: 30px;" %></td>
+              <td><%= f.label :name, "ニックネーム" %></td>
+              <td colspan="2"><%= f.text_field :name, autofocus: true, :placeholder => "ひらめき太郎" %></td>
+            </tr>
+            <tr>
+              <td><%= image_tag 'wyw-br.jpg', style: "width: 30px;" %></td>
+              <td><%= f.label :email, "メールアドレス" %></td>
+              <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= image_tag 'wyw-br.jpg', style: "width: 30px;" %></td>
+              <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+              <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+            </tr>
+            <tr>
+              <td><%= image_tag 'wyw-br.jpg', style: "width: 30px;" %></td>
+              <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+              <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="2"><%= f.submit "新規登録", class: "btn btn-primary" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <h3>既に登録済みの方</h2>
+      <p><%= link_to "こちら", new_member_session_path %>からログインしてください。</p>
+    </div>
+  </div>
+</div>

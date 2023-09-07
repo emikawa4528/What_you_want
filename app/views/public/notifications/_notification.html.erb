@@ -1,0 +1,12 @@
+<% visitor = notification.visitor %>
+<% idea_id = notification.idea_id %>
+
+<div class="notification">
+  <%= link_to member_path(visitor) do %>
+    <%= image_tag visitor.get_profile_image, size: "50x50", class: "rounded-circle" %>
+    <%= notification_form(notification) %>
+  <% end %>
+  <% if !@comment.nil? %>
+    <span class="text-center", style="color: #808080;">/<%= @comment %></span>
+  <% end %>
+</div>

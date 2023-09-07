@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2>会員一覧</h2>
+      <%= render "index", members: @member %>
+    </div>
+  </div>
+  <%= paginate @members %>
+</div>

@@ -1,0 +1,29 @@
+<div class="comment"><%= flash[:comment] %></div>
+<%= form_with(model: [idea, Comment.new], local: false) do |f| %>
+  <div class="comment">
+    <%= f.text_area :comment, :size => "60x1", placeholder: "コメント入力" %>
+  </div>
+  <div class="comment mb-3">
+    <%= f.submit "コメントする", class: "btn btn-outline-primary" %>※100字まで
+  </div>
+<% end %>
+
+<% idea.comments.each do |comment| %>
+  <table class="mx-auto">
+    <th class="profile_image">
+      <%= link_to member_path(comment.member.id) do %>
+        <%= image_tag comment.member.get_profile_image, class: "rounded-circle" %>
+      <% end %>
+    </th>
+    <th width="400">
+      <%= comment.comment %><%= render "public/comments/time", comment: comment, now: @now, today: @today %>
+    </th>
+    <th>
+      <% if comment.member == current_member %>
+        <%= link_to idea_comment_path(idea, comment), method: :delete, data: { confirm: "本当に消しますか？" }, remote: true do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </th>
+  </table>
+<% end %>

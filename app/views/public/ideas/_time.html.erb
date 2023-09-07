@@ -1,0 +1,9 @@
+<% if (@now - idea.created_at) <= 60 * 60 %>                    <!--もし 現在時刻 - 投稿時間 が１時間以下だったら-->
+  <%=((@now - idea.created_at) / 60).to_i.to_s + "分前" %>      <!-- 〇〇"分前" と表示-->
+<% elsif (@now - idea.created_at) <= 60 * 60 * 24 %>            <!--もし 現在時刻 - 投稿時間 が 24時間以下だったら-->
+  <%=((@now - idea.created_at) / 3600).to_i.to_s + "時間前" %>  <!-- 〇〇"時間前" と表示-->
+<% elsif (@today - idea.created_at.to_date) <= 30 %>            <!--もし 現在時刻 - 投稿時間 が30日以下だったら-->
+  <%= (@today - idea.created_at.to_date).to_i.to_s + "日前" %>  <!-- 〇〇"日前" と表示-->
+<% else %>                                                      <!--もし 現在時刻 - 投稿時間 が30日を超えていたら-->
+  <%= idea.created_at.strftime("%Y/%m/%d") %>                   <!-- yyyy/mm/dd と表示-->
+<% end %>

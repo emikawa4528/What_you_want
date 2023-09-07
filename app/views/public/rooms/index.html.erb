@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-10">
+      <h2>チャット一覧</h2>
+      <p></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto col-8">
+      <% @another_entries.each do |entry| %>
+        <%= link_to room_path(entry.room) do %>
+          <div class="card">
+            <div class="card-body d-flex">
+              <div class="col-1 profile_image"><%= image_tag entry.member.get_profile_image %></div>
+              <div class="col-3" style="text-align: center;"><%= entry.member.name %></div>
+              <!--# roomの最後のメッセージを20字まで表示-->
+              <div class="col-8" style="text-align: center;"><%= truncate(Message.find_by(id: entry.room.message_ids.last)&.message, length: 20) %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

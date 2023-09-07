@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="mx-auto col-md-10">
+      <h2>投稿詳細</h2>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="mx-auto col-md-8">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <div class="float-left">
+            <%= link_to member_path(@idea.member.id) do %>
+              <%= image_tag @idea.member.get_profile_image, size: "40x40" %>
+            <% end %>
+          </div>
+          <div class="float-right">
+            <% if @idea.member == current_member %>
+              <%= link_to edit_idea_path(@idea.id), class: "btn btn-outline-secondary" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to idea_path, method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn btn-outline-danger" do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <% if @idea.idea_images.present? %>
+          <div class="card-img-top slicker_non_auto">
+            <% @idea.idea_images.each do |image| %>
+              <%= link_to image_tag(image, width: "400px"), url_for(image) %>
+            <% end %>
+          </div>
+          <p class="text-right mr-3">image:<%= @idea.idea_images.count %></p>
+        <% end %>
+        <div class="card-body">
+          <span id="like_<%= @idea.id %>"><%= render "public/likes/like", idea: @idea %></span>
+          <span id="comments_<%= @idea.id %>"><%= render "public/comments/count", idea: @idea %></span><br><br>
+          <h3 class="card-title"><%= @idea.title %></h3>
+          <p class="card-text" style="font-size: 20px;"><%= @idea.body %></p>
+        </div>
+        <div class="mt-5 mb-5" id="comment_area"><%= render "public/comments/comments", idea: @idea, comment: @comment %></div>
+        <div class="card-footer"><%= render "time", idea: @idea %></div>
+      </div>
+    </div>
+  </div>
+</div>

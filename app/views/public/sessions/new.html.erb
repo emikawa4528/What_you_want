@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-10'>
+      <%= flash[:withdraw] %>
+      <h2>会員ログイン</h2>
+      <%= form_with model: @member, url: member_session_path do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= image_tag 'wyw-br.jpg', style: "width: 30px;" %></td>
+              <td><%= f.label :email, "メールアドレス" %></td>
+              <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= image_tag 'wyw-br.jpg', style: "width: 30px;" %></td>
+              <td><%= f.label :password, "パスワード" %></td>
+              <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="2"><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <h3>登録がお済みでない方</h2>
+      <p><%= link_to "こちら", new_member_registration_path %>から新規会員登録してください。</p>
+    </div>
+  </div>
+</div>

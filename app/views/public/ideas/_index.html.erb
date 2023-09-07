@@ -1,0 +1,30 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    <%= link_to member_path(idea.member.id) do %>
+      <%= image_tag idea.member.get_profile_image %>
+    <% end %>
+  </div>
+  <% if idea.idea_images.present? %>
+    <div class="card-img-top">
+      <% idea.idea_images.each do |image| %>
+        <%= link_to idea_path(idea.id) do %>
+          <%= image_tag image %>
+        <% end %>
+      <% end %>
+    </div>
+    <p class="text-right mr-3">image:<%= idea.idea_images.count %></p>
+  <% end %>
+  <div class="card-body">
+    <span id="like_<%= idea.id %>"><%= render "public/likes/like", idea: idea %></span>
+    <span>
+      <%= render "public/comments/count", idea: idea %>
+    </span><br><br>
+    <%= link_to idea_path(idea.id) do %>
+      <h5 class="card-title"><%= idea.title %></h4>
+    <% end %>
+    <p class="card-text"><%= idea.body.truncate(50) %></p>  <!--50字まで表示-->
+  </div>
+  <div class="card-footer">
+    <%= render 'public/ideas/time', idea: idea %>
+  </div>
+</div>
